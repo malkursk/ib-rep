@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Лабораторная работа 3</title>
+</head>
+<body>
+<style>
+    h1{
+        color:green;
+        font-family: 'Times New Roman', Times, serif;
+    }
+   button{
+    background-color:green;
+   }
+</style>
+  <h1>Наименьшее общее кратное (НОК)</h1>
+
+  <label for="number1">Введите первое число:</label>
+  <input type="number" id="number1">
+
+  <label for="number2">Введите второе число:</label>
+  <input type="number" id="number2">
+
+  <button onclick="calculateLCM()">Вычислить НОК</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateLCM() {
+      var number1 = parseInt(document.getElementById("number1").value);
+      var number2 = parseInt(document.getElementById("number2").value);
+
+      var maxNumber = Math.max(number1, number2);
+      var lcm = maxNumber;
+
+      while (true) {
+        if (lcm % number1 === 0 && lcm % number2 === 0) {
+          break;
+        }
+        lcm += maxNumber;
+      }
+
+      document.getElementById("result").innerHTML = "Наименьшее общее кратное: " + lcm;
+    }
+  </script>
+
+</body>
+</html>

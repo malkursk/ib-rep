@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вычисление числа Фибоначчи с использованием рекурсии</title>
+    <script>
+        function fibonacci(n) {
+            if (n <= 1) {
+                return n;
+            } else {
+                return fibonacci(n-1) + fibonacci(n-2);
+            }
+        }
+
+        function calculateFibonacci() {
+            var n = parseInt(document.getElementById("numberInput").value);
+            var resultOutput = document.getElementById("resultOutput");
+
+            if (isNaN(n) || n < 0) {
+                resultOutput.textContent = "Введите неотрицательное число!";
+            } else {
+                var fibonacciNumber = fibonacci(n);
+                resultOutput.textContent = "Число Фибоначчи для n = " + n + ": " + fibonacciNumber;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Вычисление числа Фибоначчи с использованием рекурсии</h1>
+
+    <label for="numberInput">Введите число n: </label>
+    <input type="text" id="numberInput">
+    <button onclick="calculateFibonacci()">Вычислить</button>
+
+    <p id="resultOutput"></p>
+</body>
+</html>

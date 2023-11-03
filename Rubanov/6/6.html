@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Исключение гласных</title>
+    <style>
+        body {
+            background-color: #a761ed; /* Фоновый цвет в фиолетовых тонах */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bublick {
+            background-color: #ab73e6; /* Фон  в фиолетовых тонах */
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #FFFFFF; /* Цвет заголовка в белом цвете */
+        }
+
+        label {
+            color: #FFFFFF; /* Цвет текста метки в белом цвете */
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+/* настр табл гуда запис текст  */
+        textarea::placeholder {
+            color: #791cec; /* Цвет текста "введите текст"  в фиолетовых тонах */
+        }
+
+        button {
+            background-color: #FF6381; /* Фон кнопки в розовых тонах */
+            color: #FFFFFF; /* Цвет текста кнопки в белом цвете */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0f090a; /* Изменение цвета кнопки при наведении */
+        }
+
+        h2 {
+            color: #FFFFFF; /* Цвет заголовка результата в белом цвете */
+        }
+
+        #outputText {
+            color: #FFFFFF; /* Цвет текста результата в белом цвете */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="bublick">
+        <h1>Исключение гласных</h1>
+        <label for="inputText">Введите текст:</label>
+        <textarea id="inputText" placeholder="Введите текст"></textarea>
+        <button id="processButton">Обработать</button>
+        <h2>Результат:</h2>
+        <div id="outputText"></div>
+        <script src="7.js"></script>
+    </div>
+</body>
+</html>

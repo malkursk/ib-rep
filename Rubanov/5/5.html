@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка на анаграмму</title>
+    <link rel="7" href="7.css">
+    <style>
+        body {
+            background-color: #6D5B96;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #9B7EBA;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #FFFFFF;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input::placeholder {
+            color: #9B7EBA;
+        }
+
+        button {
+            background-color: #FF6381;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #050404;
+        }
+/* при нав */
+        #result {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Проверка на анаграмму</h1>
+        <input type="text" id="input1" placeholder="Введите первую строку">
+        <input type="text" id="input2" placeholder="Введите вторую строку">
+        <button id="checkButton">Проверить</button>
+        <p id="result"></p>
+        <script src="6.js"></script>
+    </div>
+</body>
+</html>

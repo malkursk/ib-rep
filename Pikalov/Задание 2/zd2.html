@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Лабораторная работа 3</title>
+</head>
+<body>
+
+  <h1>Вычисление следа матрицы</h1>
+  <label for="rows">Количество строк:</label>
+    <input type="number" id="rows">
+    
+    <label for="cols">Количество столбцов:</label>
+    <input type="number" id="cols">
+    
+    <button onclick="createMatrix()">Создать матрицу</button>
+    <button onclick="calculate()">Вычислить след матрицы</button>
+    
+    <h2>Матрица</h2>
+    
+    <table id="matrix">
+    </table>
+    
+    <p id="result"></p>
+    
+    <script>
+        function createMatrix() {
+            var rows = Number(document.getElementById("rows").value);
+            var cols = Number(document.getElementById("cols").value);
+            
+            var matrixTable = document.getElementById("matrix");
+            matrixTable.innerHTML = "";
+            
+            for (var i = 0; i < rows; i++) {
+                var row = matrixTable.insertRow();
+                
+                for (var j = 0; j < cols; j++) {
+                    var cell = row.insertCell();
+                    
+                    var input = document.createElement("input");
+                    input.type = "number";
+                    input.className = "input-cell";
+                    
+                    cell.appendChild(input);
+                }
+            }
+        }
+        </script>
+  <style>
+    h1{
+        color:green
+    }
+    h2{
+        color:green
+    }
+button{
+    background-color: green;
+}
+    table {
+        border-collapse: collapse;
+    }
+    
+    th, td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+    
+    .input-cell {
+        width: 40px;
+        text-align: center;
+    }
+</style>
+
+<script>
+   /* function  calculate() {
+            var matrix = document.getElementById('matrix');
+            var rows = matrix.getElementsByTagName('tr');
+            var trace = 0;
+
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                trace += parseInt(cells[i].innerText);
+            }
+
+            alert('След матрицы: ' + trace);
+        }calculate() {
+        var matrixTable = document.getElementById("matrix");
+            var rows = matrixTable.rows;
+            
+    }*/
+</script>
+</body>
+  
+     
+
+</html>

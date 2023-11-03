@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Лабораторная работа №3</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: rgb(71, 154, 74);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Лабораторная работа №3</h1>
+    
+    <form>
+        <label for="numberInput">Число (в семеричной системе):</label>
+        <input type="text" id="numberInput" />
+      
+        <button type="button" onclick="convert()">Перевести</button>
+      
+        <label for="resultOutput">Результат перевода (в десятичной системе):</label>
+        <input type="text" id="resultOutput" readonly />
+        <div id="errorOutput"></div>
+    </form>
+    <script>
+        function convert() {
+            var number = document.getElementById("numberInput").value;
+            var resultOutput = document.getElementById("resultOutput");
+            var errorOutput = document.getElementById("errorOutput");
+
+            if (number === "") {
+                errorOutput.innerHTML = "Введите число!";
+                resultOutput.value = "";
+            } else if (!/^[0-6]+$/.test(number)) {
+                errorOutput.innerHTML = "Введите верное число!";
+                resultOutput.value = "";
+            } else {
+                errorOutput.innerHTML = "";
+                var convertedNumber = parseInt(number, 7).toString(10);
+                resultOutput.value = convertedNumber;
+            }
+        }
+    </script>
+</body>
+</html>
