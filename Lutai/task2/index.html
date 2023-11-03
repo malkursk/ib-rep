@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Скалярное произведение векторов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input {
+            margin: 5px 0;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Скалярное произведение векторов</h2>
+
+<input id="vector1" type="text" placeholder="Введите вектор 1 (напр., 1,2,3)">
+<input id="vector2" type="text" placeholder="Введите вектор 2 (напр., 4,5,6)">
+<button onclick="calculateDotProduct()">Вычислить</button>
+<div id="result"></div>
+
+<script>
+    function calculateDotProduct() {
+        var vector1 = document.getElementById('vector1').value.split(',').map(Number);
+        var vector2 = document.getElementById('vector2').value.split(',').map(Number);
+
+        // Проверка валидности введенных данных
+        if (vector1.length !== vector2.length || vector1.includes(NaN) || vector2.includes(NaN)) {
+            document.getElementById('result').textContent = 'Ошибка: введите два вектора одинаковой размерности, используя числа.';
+            return;
+        }
+
+        var dotProduct = 0;
+        for (var i = 0; i < vector1.length; i++) {
+            dotProduct += vector1[i] * vector2[i];
+        }
+
+        document.getElementById('result').textContent = "Скалярное произведение: " + dotProduct;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Перевод из десятичной в шестнадцатеричную систему</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input, button {
+            margin: 5px 0;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Перевод из десятичной в шестнадцатеричную систему</h2>
+
+<input id="decimalInput" type="text" placeholder="Введите десятичное число">
+<button onclick="convertToHex()">Перевести</button>
+<div id="result"></div>
+
+<script>
+    function convertToHex() {
+        var decimalInput = document.getElementById('decimalInput').value;
+        var decimalNumber = parseInt(decimalInput, 10);
+
+        // Проверка валидности введенного данных
+        if (isNaN(decimalNumber)) {
+            document.getElementById('result').textContent = 'Ошибка: введите корректное десятичное число.';
+            return;
+        }
+
+        var hexNumber = decimalNumber.toString(16).toUpperCase();
+
+        document.getElementById('result').textContent = "Шестнадцатеричное число: " + hexNumber;
+    }
+</script>
+
+</body>
+</html>
