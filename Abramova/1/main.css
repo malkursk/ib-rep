@@ -1,0 +1,40 @@
+body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color: wheat;
+    font-size: 20px;
+}
+
+.perevod {
+    font-size: 30px;
+    color:palevioletred
+}
+
+
+.container {
+    width: 650px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+input, button {
+    padding: 5px 15px;
+    margin: 10px;
+    border: 1px grey solid;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+button {
+    margin-left: 0;
+    padding: 15px;
+    background-color: palevioletred;
+    color: white;
+}
+
+
+#result {
+    font-size: 30px;
+    color: palevioletred;
+}
+

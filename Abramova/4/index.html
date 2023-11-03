@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удаление гласных</title>
+    <style>
+        * {
+          font-family: Arial, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .wrapper {
+            text-align: center;
+            max-width: 600px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            min-height: 100px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Удаление гласных</h2>
+        <textarea id="sourceText" placeholder="Введите текст здесь..."></textarea>
+        <textarea id="resultText" readonly placeholder="Результат появится здесь..."></textarea>
+        <button id="deleteVowelsButton">Удалить гласные</button>
+    </div>
+
+    <script>
+        function removeVowelsFromText() {
+            var sourceText = document.getElementById("sourceText").value;
+            var vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
+            var result = sourceText.split('').filter(letter => !vowels.includes(letter.toLowerCase())).join('');
+            document.getElementById("resultText").value = result;
+        }
+
+        document.getElementById("deleteVowelsButton").addEventListener("click", removeVowelsFromText);
+    </script>
+</body>
+</html>

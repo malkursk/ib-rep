@@ -1,0 +1,11 @@
+input {
+    padding: .5em 1em;
+    margin: .5em 0;
+  }
+  
+  #inputs-box {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }

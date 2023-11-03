@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+    <head>
+       
+        <title>конвертер</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <p class="perevod">Перевод из 10-ой системы в 3-ую</p>
+           <p> </p>
+            Введите число: <input id="number"><br>
+            <hr>
+            <button id="count">Конвертировать</button><br>
+            <div id="result">Результат: </div>
+        </div> <!-- /container -->
+
+        <script>
+            function conwerter() {
+                var number = document.getElementById("number").value;
+                
+                    res = parseInt(number, 10).toString(3);
+               
+
+                document.getElementById("result").innerHTML = "Результат: " + res;
+            }
+
+            document.getElementById("count").addEventListener("click", conwerter);
+        </script>
+
+    </body>
+</html>

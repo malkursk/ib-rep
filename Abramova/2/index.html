@@ -1,0 +1,37 @@
+<html>
+    <head>
+       
+        <title>сумма</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="inputs-box">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+        </div>
+        <a href="javascript:void(0)" id="add-input-btn">добавить поле</a>
+        <h2 id="result-box">Результат: 0</>
+
+        <script>
+          const addInputBtn = document.getElementById('add-input-btn');
+         const inputsBox = document.getElementById('inputs-box');
+          const resulBox = document.getElementById('result-box');
+
+         addInputBtn.addEventListener('click', e => {
+              let inpt = document.createElement('input');
+              inpt.type = 'number';
+  
+              inputsBox.appendChild(inpt);
+           })
+
+           inputsBox.addEventListener('input', e => {
+              let sum = 0;
+  
+             inputsBox.querySelectorAll('input').forEach(el => sum += +el.value)
+  
+              resulBox.textContent = `Резульат: ${sum}`;
+            })
+        </script>
+ </body>
+</html>

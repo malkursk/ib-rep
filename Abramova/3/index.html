@@ -1,0 +1,38 @@
+<html lang="ru">
+ <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>max</title>
+  </head>
+  <body> 
+   <br>
+    <script type="text/javascript">
+     function evaluate() {
+       const input = prompt("Please enter the array of integers in the form: 1,2,3,1")
+        .split(',')
+       .map(nums => nums.trim());
+        
+        function max(numArray) {
+          var nums = numArray.slice();
+          if (nums.length == 1) { return nums[0]; }
+            if (parseInt(nums[0]) < parseInt(nums[1])) { nums.splice(0,1); }
+               else { nums.splice(1,1); }
+         return max(nums);
+       }
+        
+        
+       if (input == "" || input == null) {
+          document.writeln("Please, enter number");
+        } 
+        else {    
+         document.writeln("The largest number is: ");
+         document.writeln(max(input) + " with a starting input string of: " + input);
+        }
+      } 
+    </script>
+        
+    <script type="text/javascript">
+     evaluate();
+    </script>
+        
+  </body>
+</html>
