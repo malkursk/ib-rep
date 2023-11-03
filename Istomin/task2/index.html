@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вычисление следа матрицы</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Вычисление следа матрицы</h2>
+    <textarea id="matrixInput" placeholder="Введите матрицу в формате m,n,...;a,b,...;..."></textarea>
+    <button onclick="calculateTrace()">Вычислить след</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateTrace() {
+        const input = document.getElementById('matrixInput').value.trim();
+        const rows = input.split(';').map(row => row.split(',').map(Number));
+        const size = rows.length;
+
+        // Проверка на квадратную матрицу
+        if (rows.some(row => row.length !== size || row.includes(NaN))) {
+            document.getElementById('result').textContent = 'Ошибка: убедитесь, что матрица квадратная и все элементы являются числами.';
+            return;
+        }
+
+        let trace = 0;
+        for (let i = 0; i < size; i++) {
+            trace += rows[i][i];
+        }
+
+        document.getElementById('result').textContent = `След матрицы: ${trace}`;
+    }
+</script>
+
+</body>
+</html>

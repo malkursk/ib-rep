@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Перевод из 10 в 14 систему счисления</title>
+</head>
+<body>
+
+<h2>Перевод из десятичной системы в систему счисления с основанием 14</h2>
+
+<label for="decimalInput">Введите десятичное число:</label>
+<input type="number" id="decimalInput" placeholder="Введите число">
+<button onclick="convertToBase14()">Перевести</button>
+<p id="result"></p>
+
+<script>
+    function convertToBase14() {
+        const decimalInput = document.getElementById('decimalInput').value;
+        const decimalNumber = parseInt(decimalInput, 10);
+        if (isNaN(decimalNumber)) {
+            document.getElementById('result').textContent = 'Пожалуйста, введите действительное число.';
+            return;
+        }
+        const base14 = decimalNumber.toString(14);
+        document.getElementById('result').textContent = `Число в 14 системе счисления: ${base14.toUpperCase()}`;
+    }
+</script>
+
+</body>
+</html>

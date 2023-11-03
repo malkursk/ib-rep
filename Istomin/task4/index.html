@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление гласных из текста</title>
+</head>
+<body>
+
+<h2>Удаление гласных из текста</h2>
+
+<label for="textInput">Введите текст:</label>
+<textarea id="textInput" placeholder="Введите текст здесь..."></textarea>
+<button onclick="removeVowels()">Удалить гласные</button>
+<p id="result"></p>
+
+<script>
+    function removeVowels() {
+        const text = document.getElementById('textInput').value;
+        const vowels = 'аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouAEIOU';
+        const result = text.split('').filter(letter => !vowels.includes(letter)).join('');
+        document.getElementById('result').textContent = result;
+    }
+</script>
+
+</body>
+</html>
