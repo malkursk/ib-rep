@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Алгоритмы</title>
+</head>
+<body style="text-align: center;">
+    <h1>Андрей Бутусов бт21</h1>
+    <h1>Алгоритмы</h1>
+    
+    <h2>Задание 1: Перевод числа из 10-ой системы счисления в 7-ую систему счисления</h2>
+    <p>Введите число в 10-ой системе счисления: <input type="text" id="decimalInput"></p>
+    <button onclick="decimalToBase7()">Перевести</button>
+    <p>Результат: <span id="base7Result"></span></p>
+
+    <h2>Задание 2: Поиск максимального элемента в матрице</h2>
+    <p>Введите матрицу (каждая строка через запятую, строки разделены точкой с запятой): <textarea id="matrixInput"></textarea></p>
+    <button onclick="findMaxInMatrix()">Найти максимум</button>
+    <p>Максимальный элемент: <span id="maxElement"></span></p>
+
+    <h2>Задание 3: Поиск медианы массива чисел</h2>
+    <p>Введите массив чисел (через запятую): <input type="text" id="numberArray"></p>
+    <button onclick="findMedian()">Найти медиану</button>
+    <p>Медиана: <span id="medianResult"></span></p>
+
+    <h2>Задание 4: Исключение гласных в тексте</h2>
+    <p>Введите текст: <textarea id="textInput"></textarea></p>
+    <button onclick="removeVowels()">Исключить гласные</button>
+    <p>Результат: <span id="textResult"></span></p>
+
+    <script>
+        function decimalToBase7() {
+            const decimalInput = parseInt(document.getElementById("decimalInput").value);
+            const base7Result = decimalInput.toString(7);
+            document.getElementById("base7Result").innerText = base7Result;
+        }
+
+        function findMaxInMatrix() {
+            const matrixInput = document.getElementById("matrixInput").value;
+            const rows = matrixInput.split(";");
+            let maxElement = -Infinity;
+
+            for (let i = 0; i < rows.length; i++) {
+                const rowValues = rows[i].split(",");
+                for (let j = 0; j < rowValues.length; j++) {
+                    const value = parseFloat(rowValues[j]);
+                    if (!isNaN(value) && value > maxElement) {
+                        maxElement = value;
+                    }
+                }
+            }
+
+            document.getElementById("maxElement").innerText = maxElement.toString();
+        }
+
+        function findMedian() {
+            const numberArray = document.getElementById("numberArray").value.split(",");
+            const numbers = numberArray.map(Number).filter(Number);
+            numbers.sort((a, b) => a - b);
+            let median;
+
+            if (numbers.length % 2 === 0) {
+                const middle = numbers.length / 2;
+                median = (numbers[middle - 1] + numbers[middle]) / 2;
+            } else {
+                median = numbers[Math.floor(numbers.length / 2)];
+            }
+
+            document.getElementById("medianResult").innerText = median.toString();
+        }
+
+        function removeVowels() {
+            const textInput = document.getElementById("textInput").value;
+            const textWithoutVowels = textInput.replace(/[aeiouAEIOUуеыаоэяиюёУЕЫАОЭЯИЮЁ]/g, '');
+            document.getElementById("textResult").innerText = textWithoutVowels;
+        }
+    </script>
+</body>
+</html>
