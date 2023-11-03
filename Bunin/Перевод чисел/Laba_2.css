@@ -1,0 +1,13 @@
+*, body{
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.decimalInputWrapper{
+    margin-bottom: 8px;
+    font-weight: 600;
+    width: 200px;
+}
+.sixOutputWrapper{
+    margin-bottom: 8px;
+    font-weight: 600;
+    width: 200px;
+}
