@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Умножение матриц</title>
+</head>
+<body>
+    <h1>Умножение двух матриц</h1>
+    <form id="matrixForm">
+        <label for="rowsA">Количество строк матрицы A:</label>
+        <input type="number" id="rowsA" required><br>
+
+        <label for="colsA">Количество столбцов матрицы A:</label>
+        <input type="number" id="colsA" required><br>
+
+        <label for="rowsB">Количество строк матрицы B:</label>
+        <input type="number" id="rowsB" required><br>
+
+        <label for="colsB">Количество столбцов матрицы B:</label>
+        <input type="number" id="colsB" required><br>
+
+        <input type="submit" value="Создать матрицы">
+    </form>
+
+    <div id="matrixInput" style="display: none;">
+        <h2>Введите элементы матрицы A:</h2>
+        <table id="matrixTableA"></table>
+
+        <h2>Введите элементы матрицы B:</h2>
+        <table id="matrixTableB"></table>
+
+        <button id="multiplyButton">Умножить</button>
+
+        <h2>Результат умножения матриц:</h2>
+        <table id="resultTable"></table>
+    </div>
+
+    <script>
+        document.getElementById('matrixForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            createMatrixInput();
+        });
+
+        function createMatrixInput() {
+            const rowsA = parseInt(document.getElementById('rowsA').value);
+            const colsA = parseInt(document.getElementById('colsA').value);
+            const rowsB = parseInt(document.getElementById('rowsB').value);
+            const colsB = parseInt(document.getElementById('colsB').value);
+
+            if (colsA !== rowsB) {
+                alert('Число столбцов матрицы A должно быть равно числу строк матрицы B для умножения.');
+                return;
+            }
+
+            const matrixInput = document.getElementById('matrixInput');
+            matrixInput.style.display = 'block';
+
+            createMatrixTable('matrixTableA', rowsA, colsA);
+            createMatrixTable('matrixTableB', rowsB, colsB);
+        }
+
+        function createMatrixTable(id, rows, cols) {
+            const table = document.getElementById(id);
+            table.innerHTML = '';
+
+            for (let i = 0; i < rows; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < cols; j++) {
+                    const cell = document.createElement('td');
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.required = true;
+                    cell.appendChild(input);
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+        }
+
+        document.getElementById('multiplyButton').addEventListener('click', function () {
+            const matrixA = readMatrix('matrixTableA');
+            const matrixB = readMatrix('matrixTableB');
+            const resultMatrix = multiplyMatrices(matrixA, matrixB);
+            displayResult(resultMatrix);
+        });
+
+        function readMatrix(id) {
+            const table = document.getElementById(id);
+            const rows = table.rows;
+            const matrix = [];
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const rowValues = [];
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cell = row.cells[j];
+                    const input = cell.querySelector('input');
+                    rowValues.push(parseFloat(input.value));
+                }
+                matrix.push(rowValues);
+            }
+
+            return matrix;
+        }
+
+        function multiplyMatrices(matrixA, matrixB) {
+            const resultMatrix = [];
+            const rowsA = matrixA.length;
+            const colsA = matrixA[0].length;
+            const colsB = matrixB[0].length;
+
+            for (let i = 0; i < rowsA; i++) {
+                const row = [];
+                for (let j = 0; j < colsB; j++) {
+                    let sum = 0;
+                    for (let k = 0; k < colsA; k++) {
+                        sum += matrixA[i][k] * matrixB[k][j];
+                    }
+                    row.push(sum);
+                }
+                resultMatrix.push(row);
+            }
+
+            return resultMatrix;
+        }
+
+        function displayResult(matrix) {
+            const resultTable = document.getElementById('resultTable');
+            resultTable.innerHTML = '';
+
+            for (let i = 0; i < matrix.length; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < matrix[i].length; j++) {
+                    const cell = document.createElement('td');
+                    cell.textContent = matrix[i][j];
+                    row.appendChild(cell);
+                }
+                resultTable.appendChild(row);
+            }
+        }
+    </script>
+</body>
+</html>

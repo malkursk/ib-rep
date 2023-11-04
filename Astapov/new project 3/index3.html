@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сортировка массива строк</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #inputBox {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #sortButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Сортировка массива строк</h1>
+        <input type="text" id="inputBox" placeholder="Введите строки через запятую">
+        <button id="sortButton">Сортировать</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const inputBox = document.getElementById('inputBox');
+        const sortButton = document.getElementById('sortButton');
+        const output = document.getElementById('output');
+
+        sortButton.addEventListener('click', () => {
+            const input = inputBox.value;
+            const stringArray = input.split(',').map(s => s.trim());
+            stringArray.sort();
+            output.innerHTML = stringArray.join(', ');
+        });
+    </script>
+</body>
+</html>
