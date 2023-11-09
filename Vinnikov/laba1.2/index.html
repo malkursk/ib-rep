@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrix Symmetry Checker</title>
+</head>
+<body>
+  <h1>Matrix Symmetry Checker</h1>
+  <label for="nNumber">Enter number of rows:</label>
+  <input type="number" id="nNumber"><br><br>
+  <label for="mNumber">Enter number of columns:</label>
+  <input type="number" id="mNumber"><br><br>
+  <label for="matrixNumber">Enter matrix elements separated by commas and rows separated by semicolons:</label><br>
+  <textarea id="matrixNumber"></textarea><br><br>
+  <button onclick="checkSymmetry()">Check Symmetry</button><br><br>
+  <textarea id="result" rows="2" cols="50" readonly></textarea>
+
+  <script src="main.js"></script>
+</body>
+</html>
