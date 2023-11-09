@@ -1,0 +1,76 @@
+<!-- index.html -->
+<!DOCTYPE html> 
+<html> 
+ 
+<head> 
+    <meta charset="utf-8" /> 
+    <title>Конвертор</title> 
+    <meta name="viewport" 
+          content="width=device-width, 
+                   initial-scale=1" /> 
+    <link rel="stylesheet" href="style.css" /> 
+</head> 
+ 
+<body> 
+    <div class="root"> 
+        <h1 class="title">Конвертор</h1> 
+        <section> 
+            <div class="option"> 
+                <span> 
+                    <label>Преобразовать из:</label> 
+                    <select id="typeFrom" 
+                            onchange="reverse()"> 
+                        <option value="10"> 
+                            10
+                        </option> 
+                        <option value="2"> 
+                            2 
+                        </option> 
+                        <option value="8">8</option>
+                        <option value="13">13</option> 
+                        <option value="16"> 
+                            16 
+                        </option> 
+                    </select> </span><span> 
+                    <label>Преобразовать в:</label> 
+                    <select id="typeTo" 
+                            onchange="update()"> 
+                        <option value="10"
+                                lable="10"> 
+                            10 
+                        </option> 
+                        <option value="2"> 
+                            2 
+                        </option> 
+                        <option value="8">8</option>
+                        <option value="13">13</option>  
+                        <option value="16"> 
+                            16 
+                        </option> 
+                    </select> 
+                </span> 
+                <br /> 
+                <br /> 
+                <span> 
+                    <label id="inputType">Входит {10}:</label> 
+                    <input type="text" 
+                           min="0"
+                           value="0" 
+                           id="input" 
+                           onkeyup="update()" /> 
+                </span> 
+                <span> 
+                    <label id="resultType">Выходит {2}</label> 
+                    <input id="res"
+                           onkeyup="reverse()" 
+                           type="text" 
+                           min="0" 
+                           value="0" /> 
+                </span> 
+            </div> 
+        </section> 
+    </div> 
+    <script src="main.js"></script> 
+</body> 
+ 
+</html>
